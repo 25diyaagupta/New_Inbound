@@ -15,8 +15,8 @@ public class AsnController {
     AsnDao asnDao;
 
     @PostMapping("/post-asn")
-    public String getAsn(@RequestBody ShipmentDetail asnAudit){
-        asnDao.addAsn(asnAudit);
+    public String getAsn(@RequestBody ShipmentDetail shipmentDetail){
+        asnDao.addAsn(shipmentDetail);
         return "Success";
     }
 

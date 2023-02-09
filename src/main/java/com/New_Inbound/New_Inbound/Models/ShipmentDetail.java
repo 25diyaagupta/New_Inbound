@@ -1,4 +1,5 @@
 package com.New_Inbound.New_Inbound.Models;
+import com.New_Inbound.New_Inbound.Models.Cases.SecondaryCaseDetails;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import jakarta.validation.Valid;
@@ -9,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 
+import java.util.List;
+
 
 @Data
 @Builder
@@ -17,11 +20,11 @@ import lombok.Getter;
 @Getter
 public class ShipmentDetail {
 
-    @SerializedName(value = "created_by", alternate = {"created_by"})
+    @SerializedName(value = "createdBy", alternate = {"created_by"})
     @Expose
     public String created_by;
 
-    @SerializedName(value = "updated_by", alternate = {"updated_by"})
+    @SerializedName(value = "updatedBy", alternate = {"updated_by"})
     @Expose
     public String updated_by;
 
@@ -72,9 +75,9 @@ public class ShipmentDetail {
     //    @SerializedName(value = "operationType", alternate = {"operation_type"})
 //    @Expose
 //    public OperationType operationType;
-//    @SerializedName(value = "secondaryCase", alternate = {"secondary_case"})
-//    @Expose
-//    public List<@Valid SecondaryCase> secondaryCase = null;
+    @SerializedName(value = "secondaryCase", alternate = {"secondary_case"})
+    @Expose
+    public List<@Valid SecondaryCaseDetails> secondaryCase = null;
     @SerializedName(value = "secondaryCaseVerified")
     @Expose
     public Integer secondaryCaseVerified = null;
@@ -114,6 +117,17 @@ public class ShipmentDetail {
 
     public boolean isPodUploaded;
     public String podFile;
+
+    public String fileName;
+
+    public String id;
+
+    public String operationType;
+
+    public String searchParameter;
+
+    public String deviceId;
+
 
     public ShipmentDetail(ShipmentDetail shipmentDetailCopy, String receivingPrimaryCaseIdCopy, String receivingSecondaryCaseIdCopy) {
         this.txnType = shipmentDetailCopy.txnType;
