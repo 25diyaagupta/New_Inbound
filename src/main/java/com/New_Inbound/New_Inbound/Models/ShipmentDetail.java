@@ -16,6 +16,15 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class ShipmentDetail {
+
+    @SerializedName(value = "created_by", alternate = {"created_by"})
+    @Expose
+    public String created_by;
+
+    @SerializedName(value = "updated_by", alternate = {"updated_by"})
+    @Expose
+    public String updated_by;
+
     @SerializedName(value = "txnType", alternate = {"txn_type"})
     @Expose
     public String txnType;
